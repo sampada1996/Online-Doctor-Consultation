@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Care & Cure Clinic</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+body{font-family: 'Open Sans', 
+	sans-serif; 
+	color:#333; 
+	font-size:14px; 
+	position: relative;
+	background: linear-gradient(45deg, #847bbd, #847bbd);
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.form_box{width:400px; padding:10px; background-color:white;}
+input{padding:5px;  margin-bottom:5px;}
+input[type="submit"]{border:none; outlin:none; background-color:#847bbd; color:white;}
+.heading{background-color:#847bbd; color:white; height:40px; width:100%; line-height:40px; text-align:center;}
+.shadow{
+  -webkit-box-shadow: 0px 0px 17px 1px rgba(0,0,0,0.43);
+-moz-box-shadow: 0px 0px 17px 1px rgba(0,0,0,0.43);
+box-shadow: 0px 0px 17px 1px rgba(0,0,0,0.43);}
+.pic{text-align:left; width:33%; float:left;}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: linear-gradient(45deg, #9932CC, #bdbdff);
+}
+
+li {
+    float: right;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: brown ;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: #A4A9AF;
+}
+
+.content
+{
+margin:-300px 0 0 59%;
+
+}
+* {
+    box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: #4b3ea3;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=submit]:hover {
+    background-color: #a49ae3;
+}
+
+.container {
+    border-radius: 5px;
+    background: linear-gradient(45deg, #998fdb, #c0bdd9);
+    padding: 20px;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+</style>
+</head>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+
+<div class="row">
+	
+        <a class="navbar-brand" target="_blank"><img src="D:/Sonata Training/Case Study/code/images/logo.png" alt=""></a>
+      
+      
+	</div>
+	
+	<br>
+<div class="container">
+ <div class="form_box shadow">
+ <form name="f1" action="patient_dashboard.html">
+ <div class="heading">
+   Please Give Your Feedback
+ </div>
+ <br/>
+ <p><b>What do you think about the quality of our service?</b></p>
+ <div>
+   <div class="pic">
+	 <img src="images/bad.png" alt="" style="width:100px;height:60px;"> <br/>
+	 <input type="radio" name="quality" value="0"><b> Bad</b><br>
+   </div>
+   <div class="pic">
+	
+     <img src="images/neutral.png" alt="" style="width:60px;height:60px;"> <br/> 
+	 <input type="radio" name="quality" value="1"><b> Okay</b><br>
+   </div>
+   <div class="pic">
+   <img src="images/good.png" alt="" style="width:60px;height:60px;"> <br/>
+   <input type="radio" name="quality" value="2"><b> Good</b><br>
+     
+     <br><br><br>
+   </div>
+ </div>
+ 
+ 
+ <p><b>Do you have any suggestion for us? </b></p>
+ <textarea name=" suggestion" rows="8" cols="40"></textarea>
+  <form name="f3" action="patient_dashboard.html">
+	<input type="submit" value="BACK"></form>
+  &nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;<input type="submit" name="submit" value="Submit Form">
+		
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+	
+</form>
+ </div>
+</body>
+</html>
