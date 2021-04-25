@@ -63,6 +63,20 @@ input[type=submit]:hover {
     background-color: #a49ae3;
 }
 
+input[type=button] {
+    background-color: #4b3ea3;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=button]:hover {
+    background-color: #a49ae3;
+}
+
 .container {
     border-radius: 5px;
     background: linear-gradient(45deg, #998fdb, #c0bdd9);
@@ -101,7 +115,7 @@ input[type=submit]:hover {
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <body>
-<form name="f1" action="">
+<form method="POST" action="patient_dashboard.html" onsubmit="">
 
  
 
@@ -116,8 +130,7 @@ input[type=submit]:hover {
 	</div>
 	<div class="row">
 		
-		<form name="f3" action="patient_dashboard.html">
-	<input type="submit" value="BACK"></form>
+		<a href="patient_dashboard.html"><input type="button" value="BACK"></a>
     </div>
 <div class="container">
 
@@ -126,22 +139,22 @@ input[type=submit]:hover {
   
 <div class="w3-row-padding">
  <div class="w3-third">
-    <label><b>Email Id:</b></label>
-    <input class="w3-input w3-border" type="email"  name="email">
+    <label><b>Email Id*:</b></label>
+    <input class="w3-input w3-border" type="email"  name="patient_email" required>
   </div>
 </div>
 
 <div class="w3-row-padding">
   <div class="w3-third">
-    <label><b>Enter Reason</b></label>
-    <textarea class="w3-input w3-border" type="text" name="reason" style="height:100px"></textarea>
+    <label><b>Enter Reason*</b></label>
+    <textarea class="w3-input w3-border" type="text" name="patient_appointment_reason" style="height:100px" maxlength="500" placeholder="You can enter only 500 characters"></textarea>
   </div>
  </div>
  
  <div class="w3-row-padding">
  <div class="w3-third">
-    <label><b>Select Date</b></label>
-    <input type="date" class="w3-input w3-border" name="dob">
+    <label><b>Select Date*</b></label>
+    <input type="datetime-local" class="w3-input w3-border" name="dob" required>
 </div>
 </div>
 
@@ -160,8 +173,9 @@ input[type=submit]:hover {
 	
  
 </div>
-</body>
+
 </form>
+</body>
 </html>
 
 

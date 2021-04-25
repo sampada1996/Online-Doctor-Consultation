@@ -2,109 +2,15 @@
 <html>
 <head>
 <title>Care & Cure Clinic</title>
-<style>
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background: linear-gradient(45deg, #9932CC, #bdbdff);
-}
-
-li {
-    float: right;
-}
-
-li a, .dropbtn {
-    display: inline-block;
-    color: brown ;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover, .dropdown:hover .dropbtn {
-    background-color: #A4A9AF;
-}
-
-.content
-{
-margin:-300px 0 0 59%;
-
-}
-* {
-    box-sizing: border-box;
-}
-
-input[type=text], select, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-}
-
-label {
-    padding: 12px 12px 12px 0;
-    display: inline-block;
-}
-
-input[type=submit] {
-    background-color: #4b3ea3;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float: right;
-}
-
-input[type=submit]:hover {
-    background-color: #a49ae3;
-}
-
-.container {
-    border-radius: 5px;
-    background: linear-gradient(45deg, #998fdb, #c0bdd9);
-    padding: 20px;
-}
-
-.col-25 {
-    float: left;
-    width: 25%;
-    margin-top: 6px;
-}
-
-.col-75 {
-    float: left;
-    width: 25%;
-    margin-top: 6px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-    .col-25, .col-75, input[type=submit] {
-        width: 100%;
-        margin-top: 0;
-    }
-}
-</style>
-</head>
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="css/patient_details_style.css">
 
+<script type="text/javascript" src="js/patient_details_script.js"></script> 
+
+</head>
 <body>
-<form name="f1" action="patient_dashboard.html">
-
- 
-
+<form method="POST" action="patient_dashboard.html" onsubmit="return check();">
 
 <div class="row">
 	<div class="col-25">
@@ -116,8 +22,8 @@ input[type=submit]:hover {
 	</div>
 	<div class="row">
 		
-		<form name="f3" action="patient_dashboard.html">
-	<input type="submit" value="BACK"></form>
+		
+	<a href="patient_dashboard.html"><input type="button" value="BACK"></a>
     </div>
 <div class="container">
 
@@ -126,36 +32,36 @@ input[type=submit]:hover {
   
 	<div class="w3-row-padding">
   <div class="w3-third">
-    <label><b>First Name:</b></label>
-    <input class="w3-input w3-border" type="text" name="first_name">
+    <label><b>First Name*:</b></label>
+    <input class="w3-input w3-border" type="text" name="patient_first_name" pattern="[A-Za-z\s]{2,}" title="Name should be atleast of 2 letters with no special or number characters" required>
   </div>
   <div class="w3-third">
     <label><b>Middle Name:</b></label>
-    <input class="w3-input w3-border" type="text" name="middle_name">
+    <input class="w3-input w3-border" type="text" name="patient_middle_name">
   </div>
   <div class="w3-third">
-    <label><b>Last Name:</b></label>
-    <input class="w3-input w3-border" type="text"  name="last_name">
+    <label><b>Last Name*:</b></label>
+    <input class="w3-input w3-border" type="text"  name="patient_last_name" pattern="[A-Za-z\s]{1,}" title="Must be atleast of 1 letter with no special or number characters" required>
   </div>
 </div>
 
-
+<br>
      
 <div class="w3-row-padding">
   <div class="w3-third">
-    <label><b>Gender:</b></label>
-	<br><b>Male:</b><input type="radio" class="w3-input w3-border" name="gender" value="Male" checked>
-	<b>Female:</b><input type="radio" class="w3-input w3-border" name="gender" value="Female" >
-	<b>Others:</b><input type="radio" class="w3-input w3-border" name="gender" value="Female" >
+    <label><b>Gender*:</b></label>
+	<br><label class="radio-container">Male<input type="radio" class="w3-input w3-border" name="patient_gender" id="patient_gender1" value="Male" ><span class="checkmark"></span></label>
+	<label class="radio-container">Female<input type="radio" class="w3-input w3-border" name="patient_gender" id="patient_gender2" value="Female" ><span class="checkmark"></span></label>
+	<label class="radio-container">Others<input type="radio" class="w3-input w3-border" name="patient_gender" id="patient_gender3" value="others" ><span class="checkmark"></span></label>
     </div>
 	
   <div class="w3-third">
-    <label><b>Date-Of-Birth:</b></label>
-    <input type="date" class="w3-input w3-border" name="dob">
+    <label><b>Date-Of-Birth*:</b></label>
+    <input type="date" class="w3-input w3-border" name="patient_dob" required>
   </div>
   <div class="w3-third">
-    <label><b>Blood Group:</b></label>
-    <select class="w3-input w3-border" name="blood_group">
+    <label><b>Blood Group*:</b></label>
+    <select class="w3-input w3-border" name="patient_blood_group" id="patient_blood_group" required>
 		<option value="select"><b>Select</b></option>
           <option value="A+"><b>A+</b></option>
           <option value="B+"><b>B+</b></option>
@@ -168,78 +74,82 @@ input[type=submit]:hover {
     </select>
   </div>
 </div>
-        
+ <br>       
 
         
 <div class="w3-row-padding">
 	<div class="w3-third">
-		<label><b>Email-Id:</b></label>
-		<input class="w3-input w3-border" type="text" name="emailid">
+		<label><b>Email-Id*:</b></label>
+		<input class="w3-input w3-border" type="email" name="patient_email" required>
 	</div>
 	<div class="w3-third">
-    <label><b>Nationality:</b></label>
-	<select class="w3-input w3-border" name="nationality">
+    <label><b>Nationality*:</b></label>
+	<select class="w3-input w3-border" name="patient_nationality" required>
+		<option value="select"><b>Select</b></option>
           <option value="Indian"><b>Indian</b></option>
           <option value="others"><b>Others</b></option>
     </select>
   </div>
   <div class="w3-third">
     <label><b>Area:</b></label>
-    <input class="w3-input w3-border" type="text"  name="area">
+    <input class="w3-input w3-border" type="text"  name="patient_area">
   </div>
   
 </div>
-
+<br>
 
         
 <div class="w3-row-padding">
   
   <div class="w3-third">
     <label><b>Current City:</b></label>
-    <input class="w3-input w3-border" type="text" name="current_city">
+    <input class="w3-input w3-border" type="text" name="patient_current_city">
   </div>
   <div class="w3-third">
     <label><b>Current State:</b></label>
-    <input class="w3-input w3-border" type="text" name="current_state">
+    <input class="w3-input w3-border" type="text" name="patient_current_state">
   </div>
   <div class="w3-third">
-    <label><b>Mobile No.:</b></label>
-    <input class="w3-input w3-border" type="text" name="mobile_no">
+    <label><b>Mobile No.*:</b></label>
+    <input class="w3-input w3-border" type="text" name="patient_mobile_no" pattern="[1-9][0-9]{9}" title="Must be of 10 digits and first digit must not be a zero" required>
   </div>
 </div>
 
-
+<br>
 
   
 <div class="w3-row-padding">
   <div class="w3-third">
-    <label><b>Disability/Handicap:</b></label>
-    <input type="radio" class="w3-input w3-border" name="disability" value="Yes" ><b>Yes</b>
-	<input type="radio" class="w3-input w3-border" name="disability" value="No" checked><b>No</b><br>
+    <label><b>Disability/Handicap*:</b></label><br>
+    <label class="radio-container">Yes<input type="radio" class="w3-input w3-border" name="patient_disability" id="patient_disability_yes" value="Yes" ><span class="checkmark"></span></label>
+	<label class="radio-container">No<input type="radio" class="w3-input w3-border" name="patient_disability" id="patient_disability_no" value="No"><span class="checkmark"></span></label><br>
   </div>
   <div class="w3-third">
-    <label><b>BP/Sugar</b></label>
-    <input type="checkbox" class="w3-input w3-border" name="bp_sgar" value="BP" ><b>Blood Pressure</b>
-	<input type="checkbox" class="w3-input w3-border" name="bp_sgar" value="Sugar" checked><b>Sugar</b><br>
+    <label><b>BP/Sugar :</b></label><br>
+    <input type="checkbox" class="w3-input w3-border" name="patient_bp" value="bp" id="bp"><label for="bp">Blood Pressure</label><br>
+	<input type="checkbox" class="w3-input w3-border" name="patient_sugar" value="sugar" id="sugar"><label for="sugar">Sugar</label><br>
   </div>
   <div class="w3-third">
-    <label><b>Any Allergies?</b></label>
-    <input type="radio" class="w3-input w3-border" name="allergies" value="Yes" ><b>Yes</b>
-	<input type="radio" class="w3-input w3-border" name="allergies" value="No" checked><b>No</b><br>
+    <label><b>Any Allergies?*</b></label><br>
+    <label class="radio-container">Yes<input type="radio" class="w3-input w3-border" name="patient_allergies" id="patient_allergies_yes" value="Yes" ><span class="checkmark"></span></label>
+	<label class="radio-container">No<input type="radio" class="w3-input w3-border" name="patient_allergies" id="patient_allergies_no" value="No"><span class="checkmark"></span></label>
 	<h6>If yes, then please mention in it in the "Health concerns" field..</h6>
   </div>
 </div>
-
+<br>
 <div class="w3-row-padding">
   <div class="w3-third">
     <label><b>Any Health Concerns?</b></label>
-    <textarea class="w3-input w3-border" type="text" name="health_concerns" style="height:100px"></textarea>
+    <textarea class="w3-input w3-border" type="text" name="patient_health_concerns" style="height:100px" maxlength="500" placeholder="You can enter only 500 characters"></textarea>
   </div>
   <div class="w3-third">
   <label for="myfile"><b>Upload files, if any:</b></label>
-  <input type="file" id="myfile" name="myfile"><br><br>
+  <input type="file" id="patient_file" name="patient_file"><br><br>
   
 </div>
+<br>
+<br>
+<br>
 <br>
 
     <div class="row">
@@ -250,8 +160,9 @@ input[type=submit]:hover {
     </div>
  
 </div>
-</body>
+
 </form>
+</body>
 </html>
 
 

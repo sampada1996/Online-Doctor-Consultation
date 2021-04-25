@@ -8,6 +8,10 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/login_style.css">
 
+
+<script type="text/javascript" src="js/patient_login_script.js"></script>  
+
+
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -21,8 +25,8 @@
         <div class="formBx">
           <form action="patient_dashboard.html" onsubmit="return true;">
             <h2>Sign In</h2>
-            <input type="text" name="" placeholder="Email Address" />
-            <input type="password" name="" placeholder="Password" />
+            <input type="email" name="" placeholder="Email Address" required />
+            <input type="password" name="" placeholder="Password" required />
             <input type="submit" name="" value="Login" />
 			<a href="index.html"><input type="button" name="" value="Back" /></a>
             <p class="signup">
@@ -34,13 +38,14 @@
       </div>
       <div class="user signupBx">
         <div class="formBx">
-          <form action="patient_dashboard.html" onsubmit="return true;">
+          <form method="POST" action="patient_dashboard.html" onsubmit="return ValidateForm(this);">
             <h2>Create an account</h2>
-			<input type="text" name="" placeholder="Full Name" />            
-            <input type="email" name="" placeholder="Email Address" />
-            <input type="password" name="" placeholder="Create Password" />
-            <input type="password" name="" placeholder="Confirm Password" />
-            <input type="submit" name="" value="Sign Up" />
+			<input type="text" name="patient_name"  placeholder="Full Name" pattern="[A-Za-z\s]{2,}" title="Name should be atleast of 2 letters with no special or number characters except balnk spance"/>            
+            <input type="email" name="patient_email"  placeholder="Email Address"  />
+            <input type="password" placeholder="Create Password" name="patient_password" id="patient_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" onkeyup='check();'/>
+            <input type="password" placeholder="Confirm Password"  name="patient_confirmpassword" id="patient_confirmpassword" onkeyup='check();'/>
+			<span id='message'></span><br>
+            <input type="submit" value="Sign Up" />
 			<a href="index.html"><input type="button" name="" value="Back" /></a>
             <p class="signup">
               Already have an account ?

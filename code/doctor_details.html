@@ -2,106 +2,14 @@
 <html>
 <head>
 <title>Care & Cure Clinic</title>
-<style>
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background: linear-gradient(45deg, #9932CC, #bdbdff);
-}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="css/doctor_details_style.css">
+<script type="text/javascript" src="js/doctor_details_script.js"></script> 
 
-li {
-    float: right;
-}
-
-li a, .dropbtn {
-    display: inline-block;
-    color: brown ;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover, .dropdown:hover .dropbtn {
-    background-color: #A4A9AF;
-}
-
-.content
-{
-margin:-300px 0 0 59%;
-
-}
-* {
-    box-sizing: border-box;
-}
-
-input[type=text], select, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-}
-
-label {
-    padding: 12px 12px 12px 0;
-    display: inline-block;
-}
-
-input[type=submit] {
-    background-color: #4b3ea3;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float: right;
-}
-
-input[type=submit]:hover {
-    background-color: #a49ae3;
-}
-
-.container {
-    border-radius: 5px;
-    background: linear-gradient(45deg, #998fdb, #c0bdd9);
-    padding: 20px;
-}
-
-.col-25 {
-    float: left;
-    width: 25%;
-    margin-top: 6px;
-}
-
-.col-75 {
-    float: left;
-    width: 25%;
-    margin-top: 6px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-    .col-25, .col-75, input[type=submit] {
-        width: 100%;
-        margin-top: 0;
-    }
-}
-</style>
 </head>
 
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
 <body>
-<form name="f1" action="doctor_dashboard.html">
+<form method="POST" action="doctor_dashboard.html" onsubmit="return check();">
 
  
 
@@ -116,8 +24,7 @@ input[type=submit]:hover {
 	</div>
 	<div class="row">
 		
-		<form name="f3" action="doctor_dashboard.html">
-	<input type="submit" value="BACK"></form>
+		<a href="doctor_dashboard.html"><input type="button" value="BACK"></a>
     </div>
 <div class="container">
 
@@ -126,16 +33,16 @@ input[type=submit]:hover {
   
 	<div class="w3-row-padding">
   <div class="w3-third">
-    <label><b>First Name:</b></label>
-    <input class="w3-input w3-border" type="text" name="first_name">
+    <label><b>First Name*:</b></label>
+    <input class="w3-input w3-border" type="text" name="doctor_first_name" pattern="[A-Za-z\s]{2,}" title="Name should be atleast of 2 letters with no special or number characters" required>
   </div>
   <div class="w3-third">
     <label><b>Middle Name:</b></label>
-    <input class="w3-input w3-border" type="text" name="middle_name">
+    <input class="w3-input w3-border" type="text" name="doctor_middle_name">
   </div>
   <div class="w3-third">
-    <label><b>Last Name:</b></label>
-    <input class="w3-input w3-border" type="text"  name="last_name">
+    <label><b>Last Name*:</b></label>
+    <input class="w3-input w3-border" type="text"  name="doctor_last_name" pattern="[A-Za-z\s]{1,}" title="Must be atleast of 1 letter with no special or number characters" required>
   </div>
 </div>
 
@@ -143,19 +50,20 @@ input[type=submit]:hover {
      
 <div class="w3-row-padding">
   <div class="w3-third">
-    <label><b>Gender:</b></label>
-	<br><b>Male:</b><input type="radio" class="w3-input w3-border" name="gender" value="Male" checked>
-	<b>Female:</b><input type="radio" class="w3-input w3-border" name="gender" value="Female" >
-	<b>Others:</b><input type="radio" class="w3-input w3-border" name="gender" value="Female" >
+    <label><b>Gender*:</b></label>
+	<br>
+	<label class="radio-container">Male<input type="radio" class="w3-input w3-border" name="doctor_gender" id="doctor_gender1"  value="Male" ><span class="checkmark"></span></label>
+	<label class="radio-container">Female<input type="radio" class="w3-input w3-border" name="doctor_gender" id="doctor_gender2" value="Female" ><span class="checkmark"></span></label>
+	<label class="radio-container">Others<input type="radio" class="w3-input w3-border" name="doctor_gender" id="doctor_gender3" value="Others" ><span class="checkmark"></span></label>
     </div>
 	
   <div class="w3-third">
-    <label><b>Date-Of-Birth:</b></label>
-    <input type="date" class="w3-input w3-border" name="dob">
+    <label><b>Date-Of-Birth*:</b></label>
+    <input type="date" class="w3-input w3-border" name="doctor_dob" required>
   </div>
   <div class="w3-third">
     <label><b>Blood Group:</b></label>
-    <select class="w3-input w3-border" name="blood_group">
+    <select class="w3-input w3-border" name="doctor_blood_group">
 		<option value="select"><b>Select</b></option>
           <option value="A+"><b>A+</b></option>
           <option value="B+"><b>B+</b></option>
@@ -173,19 +81,20 @@ input[type=submit]:hover {
         
 <div class="w3-row-padding">
 	<div class="w3-third">
-		<label><b>Email-Id:</b></label>
-		<input class="w3-input w3-border" type="text" name="emailid">
+		<label><b>Email-Id:*</b></label>
+		<input class="w3-input w3-border" type="email" name="doctor_email" required>
 	</div>
 	<div class="w3-third">
-    <label><b>Nationality:</b></label>
-	<select class="w3-input w3-border" name="nationality">
+    <label><b>Nationality:*</b></label>
+	<select class="w3-input w3-border" name="doctor_nationality" id="doctor_nationality" required>
+	<option value="select"><b>Select</b></option>
           <option value="Indian"><b>Indian</b></option>
           <option value="others"><b>Others</b></option>
     </select>
   </div>
   <div class="w3-third">
     <label><b>Area:</b></label>
-    <input class="w3-input w3-border" type="text"  name="area">
+    <input class="w3-input w3-border" type="text"  name="doctor_area">
   </div>
   
 </div>
@@ -196,15 +105,15 @@ input[type=submit]:hover {
   
   <div class="w3-third">
     <label><b>Current City:</b></label>
-    <input class="w3-input w3-border" type="text" name="current_city">
+    <input class="w3-input w3-border" type="text" name="doctor_current_city">
   </div>
   <div class="w3-third">
     <label><b>Current State:</b></label>
-    <input class="w3-input w3-border" type="text" name="current_state">
+    <input class="w3-input w3-border" type="text" name="doctor_current_state">
   </div>
   <div class="w3-third">
-    <label><b>Mobile No.:</b></label>
-    <input class="w3-input w3-border" type="text" name="mobile_no">
+    <label><b>Mobile No.*:</b></label>
+    <input class="w3-input w3-border" type="text" name="doctor_mobile_no" pattern="[1-9][0-9]{9}" title="Must be of 10 digits and first digit must not be a zero" required>
   </div>
 </div>
 
@@ -214,8 +123,8 @@ input[type=submit]:hover {
 <div class="w3-row-padding">
   
   <div class="w3-third">
-    <label><b>Your Specialization:</b></label>
-    <select class="w3-input w3-border" name="blood_group">
+    <label><b>Your Specialization*:</b></label>
+    <select class="w3-input w3-border" name="doctor_specialization" id="doctor_specialization" required>
 		<option value="select"><b>Select</b></option>
           <option value="a"><b>Doctor of Medicine by research (MD(Res), DM)</b></option>
           <option value="b"><b>Doctor of Medicine (MD, Dr.MuD, Dr.Med)</b></option>
@@ -244,8 +153,8 @@ input[type=submit]:hover {
     </select>
   </div>
   <div class="w3-third">
-    <label><b>Experience:</b></label>
-    <select class="w3-input w3-border" name="blood_group">
+    <label><b>Experience*:</b></label>
+    <select class="w3-input w3-border" name="doctor_experience" id="doctor_experience" required>
 		<option value="select"><b>Select</b></option>
           <option value="exp1"><b>0-1 years</b></option>
           <option value="exp2"><b>2-5 years</b></option>
@@ -257,10 +166,10 @@ input[type=submit]:hover {
   </div>
   
   <div class="w3-third">
-  <label for="myfile"><b>Upload all your qualification certificates here</b></label>
-  <input type="file" id="myfile1" name="myfile1"><br><br>
-  <input type="file" id="myfile2" name="myfile2"><br><br>
-  <input type="file" id="myfile3" name="myfile3"><br><br>
+  <label for="myfile"><b>Upload all your qualification certificates here<h6>One upload is mandatory</h6></b></label>
+  <input type="file" id="doctor_file1" name="doctor_file1" required><br><br>
+  <input type="file" id="doctor_file2" name="doctor_file2"><br><br>
+  <input type="file" id="doctor_file3" name="doctor_file3"><br><br>
   
 </div>
 <br>
@@ -271,10 +180,11 @@ input[type=submit]:hover {
 		<input type="submit" value="SAVE">
 		
     </div>
- 
 </div>
-</body>
+
 </form>
+
+</body>
 </html>
 
 

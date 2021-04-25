@@ -70,7 +70,7 @@ html {
   color: #fff;
 }
 .paypal .left input[type=radio], .credit .left input[type=radio] {
-  visibility: hidden;
+visibility: hidden;
 }
 .paypal .left .radio, .credit .left .radio {
   position: absolute;
@@ -121,7 +121,7 @@ input[type=radio]:checked ~ .radio::before {
 .cardholder .info label, .number .info label {
   display: inline-block;
   letter-spacing: 0.5px;
-  color: #8F92C3;
+  color: #444880;
   width: 100px;
 }
 .cardholder .info input, .number .info input {
@@ -130,6 +130,7 @@ input[type=radio]:checked ~ .radio::before {
   width: 300px;
   background-color: transparent;
   font-family: "Source Code Pro";
+  font-weight: 700;
   border: none;
   outline: none;
   margin-left: 50px;
@@ -137,10 +138,12 @@ input[type=radio]:checked ~ .radio::before {
 }
 .cardholder .info input::-moz-placeholder, .number .info input::-moz-placeholder {
   font-family: "Source Code Pro";
+    font-weight: 700;
   color: #444880;
 }
 .cardholder .info input:-ms-input-placeholder, .number .info input:-ms-input-placeholder {
   font-family: "Source Code Pro";
+    font-weight: 700;
   color: #444880;
 }
 .cardholder .info input::placeholder, .number .info input::placeholder {
@@ -189,6 +192,7 @@ input[type=radio]:checked ~ .radio::before {
 }
 .details .left span {
   font-family: "Source Code Pro";
+    font-weight: 700;
   color: #444880;
   margin: 0 2px;
 }

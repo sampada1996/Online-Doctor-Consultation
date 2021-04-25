@@ -111,6 +111,76 @@ input[type=submit]:hover {
     clear: both;
 }
 
+.radio-container {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #666;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radio-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.radio-container input:checked ~ .checkmark {
+  background-color: #e5e5e5;
+}
+
+.radio-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.radio-container .checkmark:after {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background: #6a71ad;
+}
+
+.checkmark {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #e5e5e5;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
     .col-25, .col-75, input[type=submit] {
@@ -145,16 +215,16 @@ input[type=submit]:hover {
  <div>
    <div class="pic">
 	 <img src="images/bad.png" alt="" style="width:100px;height:60px;"> <br/>
-	 <input type="radio" name="quality" value="0"><b> Bad</b><br>
+	 <label class="radio-container"><b>Bad</b><input type="radio" name="quality" value="0"><span class="checkmark"></span></label><br>
    </div>
    <div class="pic">
 	
      <img src="images/neutral.png" alt="" style="width:60px;height:60px;"> <br/> 
-	 <input type="radio" name="quality" value="1"><b> Okay</b><br>
+	 <label class="radio-container"><b>Okay</b><input type="radio" name="quality" value="1"><span class="checkmark"></span></label><br>
    </div>
    <div class="pic">
    <img src="images/good.png" alt="" style="width:60px;height:60px;"> <br/>
-   <input type="radio" name="quality" value="2"><b> Good</b><br>
+   <label class="radio-container"><b>Good</b><input type="radio" name="quality" value="2"><span class="checkmark"></span></label><br>
      
      <br><br><br>
    </div>
@@ -162,7 +232,7 @@ input[type=submit]:hover {
  
  
  <p><b>Do you have any suggestion for us? </b></p>
- <textarea name=" suggestion" rows="8" cols="40"></textarea>
+ <textarea name=" suggestion" rows="8" cols="40" maxlength="300" placeholder="You can enter upto 300 characters"></textarea>
   <form name="f3" action="patient_dashboard.html">
 	<input type="submit" value="BACK"></form>
   &nbsp;&nbsp;&nbsp;

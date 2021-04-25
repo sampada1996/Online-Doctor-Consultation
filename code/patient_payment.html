@@ -10,6 +10,7 @@
 
 </head>
 <body>
+<form method="POST" action="patient_dashboard.html" onsubmit="">
 <div class="row">
 	<div class="col-25">
         <a class="navbar-brand" href="#" target="_blank"><img src="D:/Sonata Training/Case Study/code/images/logo.png" alt="" style="width:200px;height:70px;"></a>
@@ -26,20 +27,10 @@
     </div>
     <div class="card__container">
         <div class="card">
-            <div class="row paypal">
-                <div class="left">
-                    <input id="pp" type="radio" name="payment" />
-                    <div class="radio"></div>
-                    <label for="pp">Paypal</label>
-                </div>
-                <div class="right">
-                    <img src="D:/Sonata Training/Case Study/code/images/paypal.png" alt="paypal" />
-                </div>
-            </div>
+            
             <div class="row credit">
                 <div class="left">
-                    <input id="cd" type="radio" name="payment" />
-                    <div class="radio"></div>
+                    
                     <label for="cd">Debit/ Credit Card</label>
                 </div>
                 <div class="right">
@@ -52,19 +43,19 @@
             <div class="row cardholder">
                 <div class="info">
                     <label for="cardholdername">Name</label>
-                    <input placeholder="e.g. Richard Bovell" id="cardholdername" type="text" />
+                    <input placeholder="e.g. Richard Bovell" id="cardholdername" type="text" pattern="[A-Za-z\s]{2,}" title="Name must be atleast of 2 letters with no special or number characters except balnk spance" required />
                 </div>
             </div>
             <div class="row number">
                 <div class="info">
                     <label for="cardnumber">Card number</label>
-                    <input id="cardnumber" type="text" pattern="[0-9]{16,19}" maxlength="19" placeholder="8888-8888-8888-8888"/>
+                    <input id="cardnumber" type="text" pattern="[0-9]{16,19}" maxlength="19" placeholder="8888-8888-8888-8888" title="Card number can be of 16 to 19 didgits. Please do not enter hyphen(-) in between digits" required />
                 </div>
             </div>
             <div class="row details">
                 <div class="left">
                     <label for="expiry-date">Expiry</label>
-                    <select id="expiry-date">
+                    <select id="expiry-date" required>
                         <option>MM</option>
                         <option value="1">01</option>
                         <option value="2">02</option>
@@ -79,7 +70,7 @@
                         <option value="12">12</option>
                     </select>
                     <span>/</span>
-                     <select id="expiry-date">
+                     <select id="expiry-date" required >
                         <option>YYYY</option>
                         <option value="2016">2016</option>
                         <option value="2017">2017</option>
@@ -100,8 +91,8 @@
                 </div>
                 <div class="right">
                     <label for="cvv">CVC/CVV</label>
-                    <input type="text" maxlength="4" placeholder="123"/>
-                    <span data-balloon-length="medium" data-balloon="The 3 or 4-digit number on the back of your card." data-balloon-pos="up">i</span>
+                    <input type="text" maxlength="3" placeholder="000" required />
+                    <span data-balloon-length="medium" title="The 3 digit number on the back of your card." data-balloon-pos="up">i</span>
                 </div>
             </div>
         </div>
@@ -111,10 +102,10 @@
     </div>
 	<br>
 	<div class="button">
-        <a href="patient_dashboard.html"><button type="submit"> Back</button></a>
+        <a href="patient_dashboard.html"><button type="button"> Back</button></a>
     </div>
 </div>
 <!-- partial -->
-  
+ </form>
 </body>
 </html>
