@@ -1,0 +1,67 @@
+--------------Patient---------------------------
+
+Patient Class:
+Pid
+Pname
+PEmail
+PContact
+PWD
+
+
+User Story and Views Action Method:
+Login(Email and Pwd)
+Register(Patient)
+ViewSpecialization
+ViewDoctor(specialization:string)
+BookAppointment(DoctorId)
+ViewPrescrption(AppointmentId)
+AddRating (AppoinmentId)
+
+Services:
+Patient
+
+Components:
+Patient
+Login
+Register
+ViewSpecialization
+ViewDoctor
+BookAppointment
+ViewPrescrption
+AddRating
+
+
+--------------Doctor---------------------------
+APIs:
+
+1st API: Doctor Registration 
+	 Fields: DoctorID (auto generated)
+		 FirstName
+		 Last Name
+		 Phone No
+		 Email
+		 Speciality
+		 Password
+		
+
+Doctor Login
+	Fields: Email
+		Password
+
+2 API: Appointment API (Get), 
+3 API:  Do Online Consulation
+4 API:Post Prescription 
+5 API: View Ratings
+
+Services:
+1. Doctor Registration Service, Login
+2. Appointment Service.
+3. Prescription 
+4. Ratings
+
+
+Component:
+1. Registration (POST), Login
+2. Appointment List(Get), 
+3. Prescription (POST), 
+4. Patient's Review(Get) 
